@@ -33,6 +33,8 @@ func deleteID(ctx context.Context, args []string, IDtype string) (err error) {
 		err = proxmox.PoolName(id).Delete(ctx, c)
 	case "Storage":
 		err = c.DeleteStorage(ctx, id)
+	case "SdnZone":
+		err = c.DeleteSDNZone(ctx, id)
 	case "User":
 		var userId proxmox.UserID
 		userId, err = proxmox.NewUserID(id)
